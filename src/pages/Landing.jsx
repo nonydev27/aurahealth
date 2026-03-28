@@ -19,31 +19,28 @@ const HERO_IMAGES = [
     src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=85&auto=format&fit=crop',
     alt: 'Expectant mother smiling gently, representing maternal wellbeing support',
   },
-  {
-    src: 'https://images.unsplash.com/photo-1631548866421-78f2c87de48d?w=900&q=85&auto=format&fit=crop',
-    alt: 'Nurse checking on a patient in a calm ward environment',
-  },
+
 ]
 
 const FLOW_STEPS = [
   {
     n: '01',
-    title: 'Speak or type',
-    body: 'Use everyday words in Twi, Ga, Adangbe, Ewe, or other Ghanaian languages — or English. Optional: upload audio for Khaya ASR where supported.',
+    title: 'Speak or Type',
+    body: 'Use everyday words in Twi, Ga, Adangbe, Ewe, or other Ghanaian languages or English.',
   },
   {
     n: '02',
-    title: 'Khaya → English',
-    body: 'Non-English messages are translated to English so Claude can reason safely and consistently.',
+    title: 'Aura AI → English',
+    body: 'Non-English messages are translated to English so aura health can reason safely and consistently.',
   },
   {
     n: '03',
-    title: 'Claude guidance',
+    title: 'Aura Health Guidance',
     body: 'You receive careful, non-diagnostic guidance: self-care ideas, red flags, and when to seek in-person or emergency care.',
   },
   {
     n: '04',
-    title: 'English → you',
+    title: 'English → You',
     body: 'Answers are translated back through Khaya when needed, so the guidance lands in the language you used.',
   },
 ]
@@ -74,16 +71,14 @@ export function Landing() {
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="landing-eyebrow">
-              Khaya translation · Claude · Made for Ghana & beyond
+              Aura Health · companion · Made for Ghana & beyond
             </p>
             <h1 className="brand-font hero-title">
-              Aura Health — care that meets you in your language.
+              Aura Health: Care that meets you in your language.
             </h1>
             <p className="hero-lead">
-              A medical aid experience powered by AI and African language tech:
-              ask health questions in Twi, Ga, Adangbe, Ewe, and more. We route
-              through Khaya when English is needed for Claude, then bring answers
-              back to you — clearly and carefully.
+              A medical aid experience powered by AI and African language tech: The system enables you to
+              ask health questions in Twi, Ga, Adangbe, Ewe, and more ghanaian languages. 
             </p>
             <div className="landing-cta">
               <Link to="/auth/sign-up" className="btn btn--primary">
@@ -109,7 +104,7 @@ export function Landing() {
 
       <section id="how" className="section-block section-how">
         <div className="section-inner">
-          <h2 className="section-title brand-font">How it works</h2>
+          <h2 className="section-title brand-font capitalize">How It Works</h2>
           <p className="section-intro">
             One smooth pipeline: your language, clinical-safety-first reasoning in
             English, then back to you — with zero hype and clear limits.
@@ -128,12 +123,10 @@ export function Landing() {
 
       <section id="languages" className="section-block section-lang">
         <div className="section-inner">
-          <h2 className="section-title brand-font">Languages we celebrate</h2>
+          <h2 className="section-title brand-font">Languages We Celebrate</h2>
           <p className="section-intro">
-            Aura Health is designed around Ghanaian voices first — Twi, Ga,
-            Adangbe (Dangme), Ewe, and neighbours on the map below. Khaya handles
-            many of these officially; others may roll out as models expand.
-            English skips the first translation hop entirely.
+            Aura Health is designed around for Ghanaian voices such as Twi, Ga,
+            Adangbe (Dangme), Ewe, and neighbours on the map below.
           </p>
           <div className="lang-grid">
             {GHANA_LANGUAGES_SHOWCASE.map((L) => (
