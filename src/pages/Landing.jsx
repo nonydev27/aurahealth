@@ -8,15 +8,15 @@ import './Landing.css'
 /** Unsplash — healthcare & community imagery (free to use per Unsplash licence). */
 const HERO_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=85&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=85&auto=format&fit=crop',
     alt: 'Bright, modern hospital corridor suggesting accessible care',
   },
   {
-    src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=85&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=85&auto=format&fit=crop',
     alt: 'Clinician and patient in conversation during a consultation',
   },
   {
-    src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=85&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=85&auto=format&fit=crop',
     alt: 'Expectant mother smiling gently, representing maternal wellbeing support',
   },
 ]
@@ -95,9 +95,49 @@ export function Landing() {
 
   return (
     <div className="home-scroll">
+      <div className="home-ambient" aria-hidden="true">
+        <div className="home-ambient__mesh" />
+        <svg
+          className="home-ambient__ecg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            className="home-ambient__ecg-line"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinejoin="round"
+            d="M0 60 L180 60 L200 60 L220 20 L240 100 L260 35 L280 60 L1200 60"
+          />
+        </svg>
+        <span className="home-ambient__cross home-ambient__cross--1" />
+        <span className="home-ambient__cross home-ambient__cross--2" />
+        <span className="home-ambient__cross home-ambient__cross--3" />
+        <span className="home-ambient__pulse-ring home-ambient__pulse-ring--1" />
+        <span className="home-ambient__pulse-ring home-ambient__pulse-ring--2" />
+        <div className="home-ambient__nodes">
+          <span className="home-ambient__node" />
+          <span className="home-ambient__node" />
+          <span className="home-ambient__node" />
+          <span className="home-ambient__link" />
+        </div>
+      </div>
       <section id="top" className="viewport-section hero-section">
         <div className="viewport-section__inner hero-grid">
           <div className="hero-copy">
+            <div className="ai-status-strip">
+              <span className="ai-status-strip__label">Aura AI</span>
+              <span className="ai-status-strip__dots" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
+              <span className="ai-status-strip__text">
+                Live pipeline · translate → reason → reply
+              </span>
+            </div>
             <p className="landing-eyebrow">
               Aura Health · companion · Made for Ghana & beyond
             </p>
@@ -133,6 +173,16 @@ export function Landing() {
 
       <section id="how" className="viewport-section section-block section-how section-how--stack">
         <div className="viewport-section__inner section-inner how-inner">
+          <div className="how-ai-rail" aria-label="AI-assisted flow">
+            <span className="how-ai-rail__glow" />
+            <span className="how-ai-rail__track" />
+            <span className="how-ai-rail__knob" />
+          </div>
+          <p className="how-ai-caption">
+            <strong className="how-ai-caption__strong">AI stack</strong>
+            <span className="how-ai-caption__sep">·</span>
+            Speech &amp; text → Khaya → safety-first model → your language
+          </p>
           <h2 className="section-title brand-font capitalize">How It Works</h2>
           <p className="section-intro">
             One smooth pipeline: your language, clinical-safety-first reasoning in
