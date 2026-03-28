@@ -3,7 +3,6 @@ import { Layout } from './components/Layout'
 import { RequireAuth } from './components/RequireAuth'
 import { AuthLayout } from './pages/AuthLayout'
 import { ChatCare } from './pages/ChatCare'
-import { Disclaimer } from './pages/Disclaimer'
 import { Emergency } from './pages/Emergency'
 import { Landing } from './pages/Landing'
 import { SignIn } from './pages/SignIn'
@@ -32,7 +31,10 @@ export default function App() {
           <Route path="voice" element={<VoiceCare />} />
           <Route path="how-it-works" element={<HomeHashRedirect hash="#how" />} />
           <Route path="emergency" element={<Emergency />} />
-          <Route path="disclaimer" element={<Disclaimer />} />
+          <Route
+            path="disclaimer"
+            element={<Navigate to={{ pathname: '/', hash: 'how-disclaimer' }} replace />}
+          />
         </Route>
 
         <Route element={<AuthLayout />}>

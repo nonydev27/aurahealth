@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const SECTION_IDS = ['top', 'how', 'languages', 'care', 'legal']
+const SECTION_IDS = ['top', 'how', 'languages', 'care']
 
 /** @param {(id: string) => void} onChange */
 export function useScrollSpySections(onChange) {
@@ -21,8 +21,8 @@ export function useScrollSpySections(onChange) {
         }
       },
       {
-        rootMargin: '-18% 0px -45% 0px',
-        threshold: [0, 0.12, 0.25, 0.45],
+        rootMargin: '-12% 0px -38% 0px',
+        threshold: [0, 0.1, 0.2, 0.35, 0.5],
       },
     )
 
