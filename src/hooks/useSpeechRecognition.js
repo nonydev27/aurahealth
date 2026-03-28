@@ -26,6 +26,8 @@ export function useSpeechRecognition({ lang, continuous = false }) {
     }
   }, [lang])
 
+  const clearTranscript = useCallback(() => setTranscript(''), [])
+
   const stop = useCallback(() => {
     const inst = recRef.current
     if (inst) {
@@ -82,5 +84,5 @@ export function useSpeechRecognition({ lang, continuous = false }) {
 
   useEffect(() => () => stop(), [stop])
 
-  return { supported, listening, transcript, error, start, stop }
+  return { supported, listening, transcript, error, start, stop, clearTranscript }
 }

@@ -5,50 +5,64 @@ import './StaticPages.css'
 export function HowItWorks() {
   return (
     <div className="page static">
-      <h1 className="page-title brand-font">How AuraHealth flows</h1>
+      <h1 className="page-title brand-font">How Aura Health flows</h1>
       <p className="page-lead">
-        Three layers keep things grounded: your voice &amp; language, the
-        browser speech APIs, and a safety-tuned model behind a small Node API.
+        Your question moves through Khaya for African languages, Claude for
+        medical-safety guidance in English, then Khaya again so you read or
+        listen in your own language — unless you already wrote in English.
       </p>
       <ol className="flow-list">
         <li className="card flow-step">
           <span className="flow-num">01</span>
           <div>
-            <h2 className="brand-font static-h2">Capture &amp; language</h2>
+            <h2 className="brand-font static-h2">Speak or type</h2>
             <p>
-              Pick a locale so speech recognition and synthesis match your
-              dialect. On the voice page we stream text from the mic; text mode
-              skips this step.
+              Pick Twi, Ga, Ewe, and more — or English. Use the browser mic for
+              English where it is reliable; for other languages upload audio so
+              Khaya ASR can transcribe (see Khaya&apos;s supported formats).
             </p>
           </div>
         </li>
         <li className="card flow-step">
           <span className="flow-num">02</span>
           <div>
-            <h2 className="brand-font static-h2">Structured prompting</h2>
+            <h2 className="brand-font static-h2">Khaya → English</h2>
             <p>
-              We send your wording plus a locale hint to the API. The system
-              prompt forces same-language replies, red-flag awareness, and
-              explicit encouragement to seek clinicians when appropriate.
+              If you are not in English, the API calls Khaya&apos;s translate
+              endpoint (for example <code className="inline-code">tw-en</code>)
+              so Claude always sees an English user message.
             </p>
           </div>
         </li>
         <li className="card flow-step">
           <span className="flow-num">03</span>
           <div>
-            <h2 className="brand-font static-h2">Respond &amp; narrate</h2>
+            <h2 className="brand-font static-h2">Claude in English</h2>
             <p>
-              Guidance renders in the UI; optional text-to-speech reads it in
-              your selected voice language. You stay in control — stop audio
-              anytime.
+              Claude replies with possible guidance, basic education, self-care
+              ideas when appropriate, red flags, and when to seek professional or
+              urgent care — always in English at this stage.
+            </p>
+          </div>
+        </li>
+        <li className="card flow-step">
+          <span className="flow-num">04</span>
+          <div>
+            <h2 className="brand-font static-h2">Khaya → you</h2>
+            <p>
+              For non-English users the answer is translated back (for example{' '}
+              <code className="inline-code">en-tw</code>). English users receive
+              the response as-is. Optional text-to-speech uses your language
+              hint when the browser supports it.
             </p>
           </div>
         </li>
       </ol>
       <p className="static-foot">
-        Dev tip: run <code className="inline-code">npm run dev:full</code> and
-        export <code className="inline-code">ANTHROPIC_API_KEY</code> for live
-        Claude answers. See <Link to="/disclaimer">disclaimer</Link>.
+        Run <code className="inline-code">npm run dev:full</code> with{' '}
+        <code className="inline-code">ANTHROPIC_API_KEY</code> and{' '}
+        <code className="inline-code">KHAYA_API_KEY</code> for end-to-end
+        translation. Read the <Link to="/disclaimer">disclaimer</Link>.
       </p>
     </div>
   )

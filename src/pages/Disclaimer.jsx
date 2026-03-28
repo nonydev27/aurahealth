@@ -39,7 +39,7 @@ export function Disclaimer() {
         <p>
           Continue to{' '}
           <Link to="/emergency">when to seek urgent care</Link> or{' '}
-          <Link to="/voice">voice care</Link>.
+          <Link to="/chat">consultation chat</Link>.
         </p>
       </div>
     </div>

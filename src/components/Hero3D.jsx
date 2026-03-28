@@ -1,89 +1,104 @@
-import { useRef } from 'react'
+import * as THREE from 'three'
+import { useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Float, MeshDistortMaterial, Stars } from '@react-three/drei'
+import { Environment, Float } from '@react-three/drei'
 
-const DEEP = '#214A44'
-const MINT = '#469264'
+const PRIMARY = '#469264'
+const ACCENT = '#214A44'
 
-function PulsingCore() {
+function createHeartShape() {
+  const s = new THREE.Shape()
+  const x = 0
+  const y = 0
+  s.moveTo(x + 0.25, y + 0.25)
+  s.bezierCurveTo(x + 0.25, y + 0.25, x + 0.2, y, x, y)
+  s.bezierCurveTo(x - 0.3, y, x - 0.3, y + 0.35, x - 0.3, y + 0.35)
+  s.bezierCurveTo(x - 0.3, y + 0.55, x - 0.1, y + 0.77, x + 0.25, y + 0.95)
+  s.bezierCurveTo(x + 0.6, y + 0.77, x + 0.8, y + 0.55, x + 0.8, y + 0.35)
+  s.bezierCurveTo(x + 0.8, y + 0.35, x + 0.8, y, x + 0.5, y + 0.25)
+  s.bezierCurveTo(x + 0.35, y + 0.25, x + 0.25, y + 0.25, x + 0.25, y + 0.25)
+  return s
+}
+
+function HeartMesh() {
   const mesh = useRef(null)
+  const geometry = useMemo(() => {
+    const shape = createHeartShape()
+    const geo = new THREE.ExtrudeGeometry(shape, {
+      depth: 0.34,
+      bevelEnabled: true,
+      bevelThickness: 0.055,
+      bevelSize: 0.038,
+      bevelSegments: 4,
+      curveSegments: 28,
+    })
+    geo.center()
+    geo.computeVertexNormals()
+    return geo
+  }, [])
+
   useFrame((state) => {
     const t = state.clock.elapsedTime
     if (!mesh.current) return
-    mesh.current.rotation.x = t * 0.12
-    mesh.current.rotation.y = t * 0.2
+    mesh.current.rotation.y = Math.sin(t * 0.35) * 0.28
+    mesh.current.rotation.x = Math.sin(t * 0.28) * 0.12
+    const b = 1 + Math.sin(t * 1.9) * 0.035
+    mesh.current.scale.setScalar(2.15 * b)
   })
+
   return (
-    <Float speed={2.2} rotationIntensity={0.35} floatIntensity={0.9}>
-      <mesh ref={mesh} scale={1.55}>
-        <icosahedronGeometry args={[1, 3]} />
-        <MeshDistortMaterial
-          color={MINT}
-          emissive={DEEP}
-          emissiveIntensity={0.35}
-          roughness={0.22}
-          metalness={0.55}
-          distort={0.42}
-          speed={2.4}
+    <Float speed={1.8} rotationIntensity={0.25} floatIntensity={0.35}>
+      <mesh ref={mesh} geometry={geometry} castShadow receiveShadow>
+        <meshPhysicalMaterial
+          color={PRIMARY}
+          emissive={ACCENT}
+          emissiveIntensity={0.22}
+          metalness={0.35}
+          roughness={0.28}
+          clearcoat={0.65}
+          clearcoatRoughness={0.25}
+          thickness={0.4}
+          attenuationColor={PRIMARY}
+          attenuationDistance={0.6}
         />
       </mesh>
     </Float>
   )
 }
 
-function OrbitRings() {
-  const g1 = useRef(null)
-  const g2 = useRef(null)
-  useFrame((s) => {
-    const t = s.clock.elapsedTime
-    if (g1.current) {
-      g1.current.rotation.x = Math.PI / 2.35 + Math.sin(t * 0.4) * 0.06
-      g1.current.rotation.z = t * 0.09
-    }
-    if (g2.current) {
-      g2.current.rotation.x = Math.PI / 2.1 + Math.cos(t * 0.35) * 0.05
-      g2.current.rotation.z = -t * 0.065
-    }
-  })
-  return (
-    <group>
-      <mesh ref={g1}>
-        <torusGeometry args={[2.35, 0.035, 12, 120]} />
-        <meshStandardMaterial
-          color={DEEP}
-          emissive={MINT}
-          emissiveIntensity={0.45}
-          metalness={0.6}
-          roughness={0.25}
-        />
-      </mesh>
-      <mesh ref={g2} scale={1.12}>
-        <torusGeometry args={[2.85, 0.02, 10, 100]} />
-        <meshStandardMaterial
-          color={MINT}
-          emissive={DEEP}
-          emissiveIntensity={0.25}
-          metalness={0.75}
-          roughness={0.2}
-          transparent
-          opacity={0.75}
-        />
-      </mesh>
-    </group>
-  )
-}
+function BackHeart() {
+  const ref = useRef(null)
+  const geometry = useMemo(() => {
+    const shape = createHeartShape()
+    const geo = new THREE.ExtrudeGeometry(shape, {
+      depth: 0.12,
+      bevelEnabled: true,
+      bevelThickness: 0.04,
+      bevelSize: 0.03,
+      bevelSegments: 2,
+      curveSegments: 20,
+    })
+    geo.center()
+    return geo
+  }, [])
 
-function Particles() {
+  useFrame((state) => {
+    const t = state.clock.elapsedTime
+    if (!ref.current) return
+    ref.current.rotation.z = t * 0.08
+    ref.current.rotation.y = -0.55 + Math.sin(t * 0.2) * 0.08
+  })
+
   return (
-    <Stars
-      radius={80}
-      depth={52}
-      count={3200}
-      factor={3.2}
-      saturation={0}
-      fade
-      speed={0.32}
-    />
+    <mesh ref={ref} geometry={geometry} position={[0.35, -0.15, -1.1]} scale={1.85}>
+      <meshStandardMaterial
+        color={ACCENT}
+        metalness={0.55}
+        roughness={0.45}
+        transparent
+        opacity={0.22}
+      />
+    </mesh>
   )
 }
 
@@ -91,26 +106,30 @@ export function Hero3D({ className = '' }) {
   return (
     <div className={className} aria-hidden>
       <Canvas
-        camera={{ position: [0, 0.15, 5.8], fov: 42 }}
+        camera={{ position: [0, 0.1, 5.2], fov: 44 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
+        shadows
       >
-        <color attach="background" args={['#050f0d']} />
-        <fog attach="fog" args={['#050f0d', 6, 22]} />
-        <ambientLight intensity={0.35} />
+        <ambientLight intensity={0.55} />
+        <directionalLight
+          position={[4, 8, 5]}
+          intensity={1.15}
+          color="#ffffff"
+          castShadow
+        />
+        <pointLight position={[-4, 2, 3]} intensity={0.85} color={PRIMARY} />
         <spotLight
-          position={[6, 8, 6]}
-          angle={0.35}
-          penumbra={0.85}
-          intensity={2.2}
-          color="#b8ffd8"
+          position={[0, 5, 2]}
+          angle={0.4}
+          penumbra={0.8}
+          intensity={0.9}
+          color="#e8fff4"
           castShadow={false}
         />
-        <pointLight position={[-5, -2, 4]} intensity={1.1} color={MINT} />
-        <pointLight position={[4, -4, 2]} intensity={0.85} color={DEEP} />
-        <Particles />
-        <PulsingCore />
-        <OrbitRings />
+        <Environment preset="city" environmentIntensity={0.45} />
+        <BackHeart />
+        <HeartMesh />
       </Canvas>
     </div>
   )

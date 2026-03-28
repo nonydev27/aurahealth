@@ -40,7 +40,7 @@ export function Emergency() {
       <p className="static-foot">
         AuraHealth can suggest self-care for mild issues but will always bias
         toward safety.{' '}
-        <Link to="/voice">Start a voice session</Link> remembering this is
+        <Link to="/chat">Open the chat room</Link> remembering this is
         guidance only.
       </p>
     </div>

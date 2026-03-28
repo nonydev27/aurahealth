@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700&display=swap');
 
 :root {
-  --aura-deep: rgb(33, 74, 68);
-  --aura-mint: rgb(70, 146, 100);
-  --aura-deep-dim: rgba(33, 74, 68, 0.55);
-  --aura-glow: rgba(70, 146, 100, 0.45);
-  --aura-ink: #071512;
-  --aura-panel: rgba(12, 32, 28, 0.72);
-  --aura-border: rgba(70, 146, 100, 0.28);
-  --aura-text: #e8f4ef;
-  --aura-text-soft: rgba(232, 244, 239, 0.72);
-  --aura-heading: #f3fffa;
+  /* Your spec: primary = rgb(70,146,100), accent = rgb(33,74,68) */
+  --aura-primary: rgb(70, 146, 100);
+  --aura-accent: rgb(33, 74, 68);
+  --aura-bg: #ffffff;
+  --aura-surface: #f4faf7;
+  --aura-surface-2: #eef6f2;
+  --aura-border: rgba(33, 74, 68, 0.12);
+  --aura-text: #1a2e29;
+  --aura-text-muted: rgba(26, 46, 41, 0.68);
+  --aura-heading: rgb(33, 74, 68);
 
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.55;
   color: var(--aura-text);
-  background: var(--aura-ink);
+  background: var(--aura-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,10 +33,9 @@ body {
   margin: 0;
   min-height: 100svh;
   background:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(70, 146, 100, 0.18), transparent),
-    radial-gradient(ellipse 80% 50% at 100% 50%, rgba(33, 74, 68, 0.35), transparent),
-    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(70, 146, 100, 0.12), transparent),
-    var(--aura-ink);
+    radial-gradient(ellipse 90% 60% at 0% 0%, rgba(70, 146, 100, 0.08), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 10%, rgba(33, 74, 68, 0.06), transparent 50%),
+    var(--aura-bg);
 }
 
 #root {
@@ -56,13 +55,14 @@ h3,
 }
 
 a {
-  color: var(--aura-mint);
+  color: var(--aura-primary);
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 a:hover {
-  color: #7dd4a8;
+  color: var(--aura-accent);
 }
 
 button {
@@ -70,10 +70,10 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--aura-mint);
+  outline: 2px solid var(--aura-primary);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(70, 146, 100, 0.35);
+  background: rgba(70, 146, 100, 0.22);
 }
