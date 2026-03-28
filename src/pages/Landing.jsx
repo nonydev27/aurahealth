@@ -117,7 +117,7 @@ export function Landing() {
                 Sign in
               </Link>
               <Link to="/chat" className="btn btn--ghost">
-                Open chat
+                Mobile app
               </Link>
             </div>
           </div>
@@ -168,7 +168,7 @@ export function Landing() {
               </a>{' '}
               below or{' '}
               <Link to="/chat" className="inline-link">
-                open the chat room
+                open the mobile app page
               </Link>
               .
             </p>
@@ -230,7 +230,7 @@ export function Landing() {
             </Link>{' '}
             or jump to your{' '}
             <Link to="/chat" className="inline-link">
-              consult room
+              mobile app
             </Link>
             .
           </p>
@@ -255,7 +255,7 @@ export function Landing() {
               <a href="#how-disclaimer">Disclaimer</a>
               <a href="#languages">Languages</a>
               <a href="#care">Urgent care</a>
-              <Link to="/chat">Chat</Link>
+              <Link to="/chat">Mobile app</Link>
             </div>
             <div>
               <h4 className="site-footer__heading brand-font">Account</h4>

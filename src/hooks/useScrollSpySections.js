@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const SECTION_IDS = ['top', 'how', 'languages', 'care', 'footer']
+const SECTION_IDS = ['top', 'how', 'languages', 'care']
 
 /** @param {(id: string) => void} onChange */
 export function useScrollSpySections(onChange) {
