@@ -243,8 +243,8 @@ export function Landing() {
           <div className="site-footer__brand">
             <span className="site-footer__mark brand-font">Aura Health</span>
             <p>
-              Multilingual health information assistant — Khaya for translation &amp;
-              ASR, Claude for careful guidance. Built for Ghana, open to the world.
+              Multilingual health information assistant. Built for Ghana, open to the
+              world.
             </p>
           </div>
           <div className="site-footer__cols">
