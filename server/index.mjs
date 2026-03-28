@@ -25,7 +25,7 @@ const client = process.env.ANTHROPIC_API_KEY
   ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   : null
 
-const SYSTEM_PROMPT_EN = `You are AuraHealth Guide, a careful health-information assistant (not a doctor).
+const SYSTEM_PROMPT_EN = `You are Apomuden Guide, a careful health-information assistant (not a doctor).
 
 Rules:
 - The user's message is in English (it may have been translated from another language). Reply in clear English only.
@@ -231,5 +231,5 @@ app.post('/api/health-advice', async (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`AuraHealth API listening on http://localhost:${PORT}`)
+  console.log(`Apomuden API listening on http://localhost:${PORT}`)
 })

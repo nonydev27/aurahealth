@@ -25,7 +25,7 @@ export function SignUp() {
   return (
     <>
       <h1 className="auth-title brand-font">Sign up</h1>
-      <p className="auth-lead">Create your Aura Health profile.</p>
+      <p className="auth-lead">Create your Apomuden profile.</p>
       <form className="auth-form" onSubmit={onSubmit}>
         {error ? <p className="auth-error">{error}</p> : null}
         <div className="auth-field">

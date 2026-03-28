@@ -27,7 +27,7 @@ export function SignIn() {
   return (
     <>
       <h1 className="auth-title brand-font">Sign in</h1>
-      <p className="auth-lead">Welcome back to Aura Health.</p>
+      <p className="auth-lead">Welcome back to Apomuden.</p>
       <form className="auth-form" onSubmit={onSubmit}>
         {error ? <p className="auth-error">{error}</p> : null}
         <div className="auth-field">

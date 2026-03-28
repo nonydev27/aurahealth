@@ -38,7 +38,7 @@ export function Layout() {
       {!isHome ? (
         <footer className="footer footer--compact">
           <p>
-            Aura Health — general information only, not medical advice.{' '}
+            Apomuden — general information only, not medical advice.{' '}
             <a href="/#how-disclaimer">Disclaimer</a>
           </p>
         </footer>

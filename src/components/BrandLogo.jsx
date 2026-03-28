@@ -6,7 +6,7 @@ export function BrandLogo({ size = 'md', withWordmark = false }) {
   return (
     <span className={`brand-logo ${sz}`} aria-hidden>
       <svg className="brand-logo__svg" viewBox="0 0 56 56" role="img">
-        <title>Aura Health</title>
+        <title>Apomuden</title>
         <defs>
           <linearGradient id="auraHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="rgb(70, 146, 100)" />
@@ -29,7 +29,7 @@ export function BrandLogo({ size = 'md', withWordmark = false }) {
         />
       </svg>
       {withWordmark ? (
-        <span className="brand-logo__word brand-font">Aura Health</span>
+        <span className="brand-logo__word brand-font">Apomuden</span>
       ) : null}
     </span>
   )

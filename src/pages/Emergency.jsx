@@ -38,7 +38,7 @@ export function Emergency() {
         </div>
       </div>
       <p className="static-foot">
-        AuraHealth can suggest self-care for mild issues but will always bias
+        Apomuden can suggest self-care for mild issues but will always bias
         toward safety.{' '}
         <Link to="/chat">open the mobile app page</Link> remembering this is
         guidance only.

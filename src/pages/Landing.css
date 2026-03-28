@@ -736,6 +736,7 @@
 .section-lang--stack > .viewport-section__inner {
   flex: 1;
   min-height: 0;
+  padding-bottom: 0;
 }
 
 .lang-section-body {
@@ -746,7 +747,7 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0;
 }
 
 .lang-section-intro {

@@ -29,12 +29,12 @@ const FLOW_STEPS = [
   },
   {
     n: '02',
-    title: 'Aura AI → English',
-    body: 'Non-English messages are translated to English so Aura Health can reason safely and consistently.',
+    title: 'Apomuden AI → English',
+    body: 'Non-English messages are translated to English so Apomuden can reason safely and consistently.',
   },
   {
     n: '03',
-    title: 'Aura Health Guidance',
+    title: 'Apomuden Guidance',
     body: 'You receive careful, non-diagnostic guidance: self-care ideas, red flags, and when to seek in-person or emergency care.',
   },
   {
@@ -128,7 +128,7 @@ export function Landing() {
         <div className="viewport-section__inner hero-grid">
           <div className="hero-copy">
             <div className="ai-status-strip">
-              <span className="ai-status-strip__label">Aura AI</span>
+              <span className="ai-status-strip__label">Apomuden AI</span>
               <span className="ai-status-strip__dots" aria-hidden="true">
                 <span />
                 <span />
@@ -139,10 +139,10 @@ export function Landing() {
               </span>
             </div>
             <p className="landing-eyebrow">
-              Aura Health · companion · Made for Ghana & beyond
+              Apomuden · companion · Made for Ghana & beyond
             </p>
             <h1 className="brand-font hero-title">
-              Aura Health: Care that meets you in your language.
+              Apomuden: Care that meets you in your language.
             </h1>
             <p className="hero-lead">
               A medical aid experience powered by AI and African language tech:
@@ -150,13 +150,7 @@ export function Landing() {
               languages.
             </p>
             <div className="landing-cta">
-              <Link to="/auth/sign-up" className="btn btn--primary">
-                Create account
-              </Link>
-              <Link to="/auth/sign-in" className="btn btn--ghost">
-                Sign in
-              </Link>
-              <Link to="/chat" className="btn btn--ghost">
+              <Link to="/chat" className="btn btn--primary">
                 Mobile app
               </Link>
             </div>
@@ -201,7 +195,7 @@ export function Landing() {
           <div id="how-disclaimer" className="how-disclaimer card">
             <h3 className="how-disclaimer__title brand-font">Disclaimer &amp; safety</h3>
             <p className="how-disclaimer__lead">
-              Aura Health is an educational assistant. It does not replace licensed
+              Apomuden is an educational assistant. It does not replace licensed
               clinicians or emergency services.
             </p>
             <ul className="how-disclaimer__list">
@@ -233,7 +227,7 @@ export function Landing() {
         <div className="viewport-section__inner section-inner lang-section-body">
           <h2 className="section-title brand-font">Languages we celebrate</h2>
           <p className="section-intro lang-section-intro">
-            Aura Health is designed for Ghanaian voices — Twi, Ga, Adangbe
+            Apomuden is designed for Ghanaian voices — Twi, Ga, Adangbe
             (Dangme), Ewe, and neighbours below. Khaya covers many officially;
             others may expand over time.
           </p>
@@ -263,7 +257,7 @@ export function Landing() {
         <div className="viewport-section__inner section-care-inner card">
           <h2 className="section-title brand-font">When to seek urgent care</h2>
           <p className="section-intro">
-            Aura Health cannot see you, test you, or prescribe. Use emergency
+            Apomuden cannot see you, test you, or prescribe. Use emergency
             services for breathing trouble, severe chest pain, stroke signs,
             heavy bleeding, or anything that feels immediately life-threatening.
           </p>
@@ -291,7 +285,7 @@ export function Landing() {
         <div className="site-footer__glow" aria-hidden />
         <div className="site-footer__inner">
           <div className="site-footer__brand">
-            <span className="site-footer__mark brand-font">Aura Health</span>
+            <span className="site-footer__mark brand-font">Apomuden</span>
             <p>
               Multilingual health information assistant. Built for Ghana, open to the
               world.
@@ -309,8 +303,7 @@ export function Landing() {
             </div>
             <div>
               <h4 className="site-footer__heading brand-font">Account</h4>
-              <Link to="/auth/sign-in">Sign in</Link>
-              <Link to="/auth/sign-up">Sign up</Link>
+              <Link to="/chat">Mobile app</Link>
             </div>
             <div>
               <h4 className="site-footer__heading brand-font">Trust</h4>
@@ -328,7 +321,7 @@ export function Landing() {
             )}
           </div>
           <p className="site-footer__copy">
-            © {new Date().getFullYear()} Aura Health. Not a substitute for
+            © {new Date().getFullYear()} Apomuden. Not a substitute for
             professional medical advice.
           </p>
         </div>

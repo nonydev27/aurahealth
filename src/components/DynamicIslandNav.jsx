@@ -41,7 +41,7 @@ export function DynamicIslandNav({ activeSection = 'top', scrolled = false }) {
             onClick={() => setMenuOpen(false)}
           >
             <BrandLogo size="sm" />
-            <span className="island-brand-text brand-font">Aura Health</span>
+            <span className="island-brand-text brand-font">Apomuden</span>
           </NavLink>
 
           <button
@@ -91,31 +91,12 @@ export function DynamicIslandNav({ activeSection = 'top', scrolled = false }) {
           </nav>
 
           <div className="island-trail">
-            {isAuthenticated && user ? (
+            {isAuthenticated && user && (
               <IslandAccountMenu
                 user={user}
                 onLogout={logout}
                 closeMobileMenu={() => setMenuOpen(false)}
               />
-            ) : (
-              <>
-                <NavLink
-                  to="/auth/sign-in"
-                  className={({ isActive }) =>
-                    `island-pill island-pill--ghost${isActive ? ' island-pill--active' : ''}`
-                  }
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Sign in
-                </NavLink>
-                <NavLink
-                  to="/auth/sign-up"
-                  className="island-pill island-pill--cta"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Sign up
-                </NavLink>
-              </>
             )}
           </div>
         </div>

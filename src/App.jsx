@@ -1,6 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
-import { RequireAuth } from './components/RequireAuth'
 import { AuthLayout } from './pages/AuthLayout'
 import { ChatCare } from './pages/ChatCare'
 import { Emergency } from './pages/Emergency'
@@ -20,14 +19,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Landing />} />
-          <Route
-            path="chat"
-            element={
-              <RequireAuth>
-                <ChatCare />
-              </RequireAuth>
-            }
-          />
+          <Route path="chat" element={<ChatCare />} />
           <Route path="voice" element={<VoiceCare />} />
           <Route path="how-it-works" element={<HomeHashRedirect hash="#how" />} />
           <Route path="emergency" element={<Emergency />} />
