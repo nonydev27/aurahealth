@@ -39,7 +39,7 @@ export function Layout() {
         <footer className="footer footer--compact">
           <p>
             Aura Health — general information only, not medical advice.{' '}
-            <a href="/#legal">Disclaimer</a>
+            <a href="/#how-disclaimer">Disclaimer</a>
           </p>
         </footer>
       ) : null}

@@ -19,7 +19,6 @@ const HERO_IMAGES = [
     src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=85&auto=format&fit=crop',
     alt: 'Expectant mother smiling gently, representing maternal wellbeing support',
   },
-
 ]
 
 const FLOW_STEPS = [
@@ -31,7 +30,7 @@ const FLOW_STEPS = [
   {
     n: '02',
     title: 'Aura AI → English',
-    body: 'Non-English messages are translated to English so aura health can reason safely and consistently.',
+    body: 'Non-English messages are translated to English so Aura Health can reason safely and consistently.',
   },
   {
     n: '03',
@@ -43,6 +42,35 @@ const FLOW_STEPS = [
     title: 'English → You',
     body: 'Answers are translated back through Khaya when needed, so the guidance lands in the language you used.',
   },
+]
+
+const DISCLAIMER_POINTS = [
+  {
+    title: 'Not medical advice.',
+    text: 'Information is general and may be incomplete for your situation.',
+  },
+  {
+    title: 'No doctor–patient relationship.',
+    text: 'Using this app does not create a duty of care.',
+  },
+  {
+    title: 'Emergencies.',
+    text: 'If you or someone else may be in danger, call your local emergency number immediately — do not wait for an AI reply.',
+  },
+  {
+    title: 'Speech & AI errors.',
+    text: 'Voice transcription and models can misunderstand; verify anything important with a professional.',
+  },
+  {
+    title: 'Data handling.',
+    text: 'This build sends your text to a configured API; host responsibly and never expose secrets in the browser.',
+  },
+]
+
+/** Two identical runs for seamless CSS marquee loop. */
+const MARQUEE_ITEMS = [
+  ...GHANA_LANGUAGES_SHOWCASE,
+  ...GHANA_LANGUAGES_SHOWCASE,
 ]
 
 export function Landing() {
@@ -67,8 +95,8 @@ export function Landing() {
 
   return (
     <div className="home-scroll">
-      <section id="top" className="hero-section">
-        <div className="hero-grid">
+      <section id="top" className="viewport-section hero-section">
+        <div className="viewport-section__inner hero-grid">
           <div className="hero-copy">
             <p className="landing-eyebrow">
               Aura Health · companion · Made for Ghana & beyond
@@ -77,8 +105,9 @@ export function Landing() {
               Aura Health: Care that meets you in your language.
             </h1>
             <p className="hero-lead">
-              A medical aid experience powered by AI and African language tech: The system enables you to
-              ask health questions in Twi, Ga, Adangbe, Ewe, and more ghanaian languages. 
+              A medical aid experience powered by AI and African language tech:
+              ask health questions in Twi, Ga, Adangbe, Ewe, and more Ghanaian
+              languages.
             </p>
             <div className="landing-cta">
               <Link to="/auth/sign-up" className="btn btn--primary">
@@ -102,8 +131,8 @@ export function Landing() {
         </div>
       </section>
 
-      <section id="how" className="section-block section-how">
-        <div className="section-inner">
+      <section id="how" className="viewport-section section-block section-how section-how--stack">
+        <div className="viewport-section__inner section-inner how-inner">
           <h2 className="section-title brand-font capitalize">How It Works</h2>
           <p className="section-intro">
             One smooth pipeline: your language, clinical-safety-first reasoning in
@@ -118,30 +147,70 @@ export function Landing() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
 
-      <section id="languages" className="section-block section-lang">
-        <div className="section-inner">
-          <h2 className="section-title brand-font">Languages We Celebrate</h2>
-          <p className="section-intro">
-            Aura Health is designed around for Ghanaian voices such as Twi, Ga,
-            Adangbe (Dangme), Ewe, and neighbours on the map below.
-          </p>
-          <div className="lang-grid">
-            {GHANA_LANGUAGES_SHOWCASE.map((L) => (
-              <article key={L.name} className="lang-card">
-                <span className="lang-chip">{L.tag}</span>
-                <h3 className="brand-font lang-name">{L.name}</h3>
-                <p className="lang-detail">{L.detail}</p>
-              </article>
-            ))}
+          <div id="how-disclaimer" className="how-disclaimer card">
+            <h3 className="how-disclaimer__title brand-font">Disclaimer &amp; safety</h3>
+            <p className="how-disclaimer__lead">
+              Aura Health is an educational assistant. It does not replace licensed
+              clinicians or emergency services.
+            </p>
+            <ul className="how-disclaimer__list">
+              {DISCLAIMER_POINTS.map((item) => (
+                <li key={item.title}>
+                  <strong>{item.title}</strong> {item.text}
+                </li>
+              ))}
+            </ul>
+            <p className="how-disclaimer__foot">
+              Continue to{' '}
+              <a href="#care" className="inline-link">
+                urgent care signs
+              </a>{' '}
+              below or{' '}
+              <Link to="/chat" className="inline-link">
+                open the chat room
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
 
-      <section id="care" className="section-block section-care">
-        <div className="section-inner section-care-inner card">
+      <section
+        id="languages"
+        className="viewport-section section-block section-lang section-lang--stack"
+      >
+        <div className="viewport-section__inner section-inner lang-section-body">
+          <h2 className="section-title brand-font">Languages we celebrate</h2>
+          <p className="section-intro lang-section-intro">
+            Aura Health is designed for Ghanaian voices — Twi, Ga, Adangbe
+            (Dangme), Ewe, and neighbours below. Khaya covers many officially;
+            others may expand over time.
+          </p>
+
+          <div
+            className="lang-marquee"
+            role="region"
+            aria-label="Scrolling list of supported and celebrated languages"
+          >
+            <div className="lang-marquee__track">
+              {MARQUEE_ITEMS.map((L, i) => (
+                <article
+                  key={`${L.name}-${i}`}
+                  className="lang-card lang-card--marquee"
+                >
+                  <span className="lang-chip">{L.tag}</span>
+                  <h3 className="brand-font lang-name">{L.name}</h3>
+                  <p className="lang-detail">{L.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="care" className="viewport-section section-block section-care">
+        <div className="viewport-section__inner section-care-inner card">
           <h2 className="section-title brand-font">When to seek urgent care</h2>
           <p className="section-intro">
             Aura Health cannot see you, test you, or prescribe. Use emergency
@@ -168,24 +237,7 @@ export function Landing() {
         </div>
       </section>
 
-      <section id="legal" className="section-block section-legal">
-        <div className="section-inner card legal-card">
-          <h2 className="section-title brand-font">Disclaimer</h2>
-          <p>
-            Information here is educational, not a diagnosis or treatment plan.
-            No doctor–patient relationship is formed. If you are unsure, choose
-            the safer path and speak with a licensed clinician or emergency
-            service in your area.
-          </p>
-          <p>
-            <Link to="/disclaimer" className="inline-link">
-              Read the full disclaimer →
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <footer className="site-footer" id="footer">
+      <footer className="viewport-section site-footer" id="footer">
         <div className="site-footer__glow" aria-hidden />
         <div className="site-footer__inner">
           <div className="site-footer__brand">
@@ -200,6 +252,7 @@ export function Landing() {
               <h4 className="site-footer__heading brand-font">Explore</h4>
               <a href="#top">Home</a>
               <a href="#how">How it works</a>
+              <a href="#how-disclaimer">Disclaimer</a>
               <a href="#languages">Languages</a>
               <a href="#care">Urgent care</a>
               <Link to="/chat">Chat</Link>
@@ -211,7 +264,7 @@ export function Landing() {
             </div>
             <div>
               <h4 className="site-footer__heading brand-font">Trust</h4>
-              <Link to="/disclaimer">Disclaimer</Link>
+              <a href="#how-disclaimer">Disclaimer &amp; safety</a>
               <Link to="/emergency">Emergency guide</Link>
             </div>
           </div>
