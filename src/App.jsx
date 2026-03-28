@@ -1,4 +1,3 @@
-import { lazy, Suspense } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { RequireAuth } from './components/RequireAuth'
@@ -6,23 +5,14 @@ import { AuthLayout } from './pages/AuthLayout'
 import { ChatCare } from './pages/ChatCare'
 import { Disclaimer } from './pages/Disclaimer'
 import { Emergency } from './pages/Emergency'
-import { HowItWorks } from './pages/HowItWorks'
+import { Landing } from './pages/Landing'
 import { SignIn } from './pages/SignIn'
 import { SignUp } from './pages/SignUp'
 import { VoiceCare } from './pages/VoiceCare'
 
-const Landing = lazy(() =>
-  import('./pages/Landing').then((m) => ({ default: m.Landing })),
-)
-
-function LandingFallback() {
-  return (
-    <div className="page" style={{ minHeight: '40vh' }}>
-      <p className="page-lead" style={{ margin: 0 }}>
-        Loading…
-      </p>
-    </div>
-  )
+function HomeHashRedirect({ hash }) {
+  const h = hash.startsWith('#') ? hash.slice(1) : hash
+  return <Navigate to={{ pathname: '/', hash: h }} replace />
 }
 
 export default function App() {
@@ -30,14 +20,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route
-            index
-            element={
-              <Suspense fallback={<LandingFallback />}>
-                <Landing />
-              </Suspense>
-            }
-          />
+          <Route index element={<Landing />} />
           <Route
             path="chat"
             element={
@@ -47,7 +30,7 @@ export default function App() {
             }
           />
           <Route path="voice" element={<VoiceCare />} />
-          <Route path="how-it-works" element={<HowItWorks />} />
+          <Route path="how-it-works" element={<HomeHashRedirect hash="#how" />} />
           <Route path="emergency" element={<Emergency />} />
           <Route path="disclaimer" element={<Disclaimer />} />
         </Route>

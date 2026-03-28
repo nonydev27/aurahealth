@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.75rem;
+}
+
 :root {
   /* Your spec: primary = rgb(70,146,100), accent = rgb(33,74,68) */
   --aura-primary: rgb(70, 146, 100);
