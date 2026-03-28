@@ -9,7 +9,7 @@ const HOME_SECTIONS = [
   { id: 'how', label: 'How it works', href: '#how' },
   { id: 'languages', label: 'Languages', href: '#languages' },
   { id: 'care', label: 'Urgent care', href: '#care' },
-  { id: 'legal', label: 'Disclaimer', href: '#legal' },
+  { id: 'footer', label: 'Connect', href: '#footer' },
 ]
 
 export function DynamicIslandNav({ activeSection = 'top', scrolled = false }) {
