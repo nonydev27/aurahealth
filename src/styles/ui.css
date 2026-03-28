@@ -1,0 +1,146 @@
+.page {
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem) 3rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-title {
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  margin: 0 0 0.35rem;
+}
+
+.page-lead {
+  margin: 0 0 1.75rem;
+  color: var(--aura-text-soft);
+  max-width: 40rem;
+}
+
+.card {
+  background: var(--aura-panel);
+  border: 1px solid var(--aura-border);
+  border-radius: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--aura-mint), #2d6e4f);
+  color: #f0fff8;
+  box-shadow: 0 8px 28px var(--aura-glow);
+}
+
+.btn--primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 36px rgba(70, 146, 100, 0.5);
+}
+
+.btn--ghost {
+  background: rgba(70, 146, 100, 0.12);
+  color: var(--aura-heading);
+  border-color: var(--aura-border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: rgba(70, 146, 100, 0.22);
+}
+
+.btn--danger-outline {
+  background: transparent;
+  color: #ffb4b4;
+  border-color: rgba(255, 100, 100, 0.45);
+}
+
+.field-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aura-text-soft);
+  margin-bottom: 0.4rem;
+}
+
+.select,
+.textarea {
+  width: 100%;
+  border-radius: 0.85rem;
+  border: 1px solid var(--aura-border);
+  background: rgba(5, 18, 15, 0.65);
+  color: var(--aura-text);
+  font: inherit;
+  padding: 0.65rem 0.85rem;
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--aura-mint);
+  box-shadow: 0 0 0 3px rgba(70, 146, 100, 0.25);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(70, 146, 100, 0.18);
+  color: #b8f0d2;
+  border: 1px solid var(--aura-border);
+}
+
+.reply-body {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.reply-body strong {
+  color: var(--aura-heading);
+  font-weight: 600;
+}
+
+.grid-2 {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 840px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
