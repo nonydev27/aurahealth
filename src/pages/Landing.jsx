@@ -135,7 +135,7 @@ export function Landing() {
                 <span />
               </span>
               <span className="ai-status-strip__text">
-                Live pipeline · translate → reason → reply
+                LIVE PIPELINE · TRANSLATE → REASON → REPLY
               </span>
             </div>
             <p className="landing-eyebrow">
@@ -172,11 +172,7 @@ export function Landing() {
             <span className="how-ai-rail__track" />
             <span className="how-ai-rail__knob" />
           </div>
-          <p className="how-ai-caption">
-            <strong className="how-ai-caption__strong">AI stack</strong>
-            <span className="how-ai-caption__sep">·</span>
-            Speech &amp; text → Khaya → safety-first model → your language
-          </p>
+          
           <h2 className="section-title brand-font capitalize">How It Works</h2>
           <p className="section-intro">
             One smooth pipeline: your language, clinical-safety-first reasoning in
